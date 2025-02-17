@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Твой подарок</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f5f2;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+        .input-container {
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ffb6c1;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ff8da1;
+        }
+        .video-container {
+            margin-top: 20px;
+        }
+        .final-message {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Добро пожаловать, мой дорогой!</h1>
+    <p>Твой подарок спрятан в цифровом мире. Ты готов найти его?</p>
+
+    <div class="input-container">
+        <label for="code">Введи код:</label>
+        <input type="text" id="code" placeholder="Введите код" />
+        <button onclick="checkCode()">Проверить</button>
+    </div>
+
+    <div id="video-section" class="hidden">
+        <h2>Ты прошёл первый этап! 🎉</h2>
+        <p>Посмотри видео, чтобы продолжить...</p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div id="message-section" class="hidden">
+        <p class="final-message">Думал, это всё?</p>
+        <button onclick="showLink()">Получить свой билет!</button>
+    </div>
+
+    <div id="link-section" class="hidden">
+        <p>Вот твой билет: <a href="https://drive.google.com/your-link" target="_blank">Кликни сюда</a></p>
+    </div>
+
+    <script>
+        function checkCode() {
+            const code = document.getElementById("code").value;
+            if (code === "жопка") {
+                document.getElementById("video-section").classList.remove("hidden");
+                document.getElementById("message-section").classList.remove("hidden");
+                document.getElementById("link-section").classList.remove("hidden");
+            } else {
+                alert("Неправильный код! Попробуй снова.");
+            }
+        }
+
+        function showLink() {
+            document.getElementById("link-section").classList.remove("hidden");
+        }
+    </script>
+
+</body>
+</html>
